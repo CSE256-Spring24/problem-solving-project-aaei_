@@ -1,11 +1,18 @@
 // ---- Define your dialogs  and panels here ----
- let button = '<button id="tutorial_Button" "class="accordion">Tutorial Button</button>'
+
+// button stuff 
+let button = '<button id="tutorial_Button" "class="accordion">Tutorial Button</button>'
 
 $('#sidepanel').append(button)
 
 $('#tutorial_Button').click(function(){
     console.log("This is a tutorial")
 })
+
+// tutorial accordion stuff 
+// let accordion = '<button class="accordion">Tutorial</button>'
+// let panel = '<div class="panel"></div>'
+// let text = '<p>Just testing right now</p>'
 
 // ---- Display file structure ----
 
