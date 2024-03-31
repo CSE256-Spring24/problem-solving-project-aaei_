@@ -6,7 +6,15 @@ const additionalInfo = {
     "Read_Execute": "Users can read and execute an application.",
     "Modify": "Users can read, write, and delete the file.",
     "Full_control": "Users have full access, including changing permissions and file ownership.",
-    "Special_permissions": "Users have custom configured permissions beyond the standard."
+    "Special_permissions": "Users have custom configured permissions beyond the standard.",
+    "     ":"     ", 
+    "GENERAL RULES": "   ",
+    "Inheritance":"Permissions are inherited from parent folders to their subfolders and subsequent files. Users inherit permissions from groups they are in. Inherited properties are blocked in gray. ",
+    "Precedence":"Direct permissions override inherited permissions. Deny permissions ovverride allow permissions, granted they are both equally close to the user (the inheritance described above is still respected)",
+    "Examples":"  ",
+    "One": "A user of a group may need to be added and have their permissions changed separately if their permissions should differ from the group", 
+    
+    "Two": "If a user has an 'allow' permission set on a file, but a 'deny' permission (for that same action) set on the folder which contains that file, they are allowed to perform that action"
 };
 
 let permInfo = '<div id = "perm_info"><strong style="font-size: 25px; margin-bottom: 5px;">Permission Information</strong><ul style = "padding-left: 40px;">';
