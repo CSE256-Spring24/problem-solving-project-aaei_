@@ -1,13 +1,6 @@
 // ---- Define your dialogs  and panels here ----
 
-// button stuff 
-let button = '<button id="tutorial_Button" "class="accordion">Tutorial Button</button>'
-
-$('#sidepanel').append(button)
-
-//let permInfo = '<div id="perm_info"> Read: Allows users to read and view file contents and properties. Write: Allow user to write on a file, changing contents. Read_Execute": Users can read and execute an application. Modify: Users can read, write, and delete the file. Full_control: Users have full access, including changing permissions and file ownership. Special_permissions: Users have custom configured permissions beyond the standard. </div>';
-
-const permissions = {
+const additionalInfo = {
     "Read": "Allows users to read and view file contents and properties.",
     "Write": "Allow user to write on a file, changing contents.",
     "Read_Execute": "Users can read and execute an application.",
@@ -18,21 +11,13 @@ const permissions = {
 
 let permInfo = '<div id = "perm_info"><strong style="font-size: 25px; margin-bottom: 5px;">Permission Information</strong><ul style = "padding-left: 40px;">';
 
-for (const [permission, description] of Object.entries(permissions)) {
+for (const [permission, description] of Object.entries(additionalInfo)) {
     permInfo += `<li style="margin-bottom: 5px;"><strong>${permission}:</strong> ${description}</li>`;
 }
 
 permInfo += '</ul></div>';
 $('#sidepanel').append(permInfo)
 
-$('#tutorial_Button').click(function(){
-    console.log("This is a tutorial")
-})
-
-// tutorial accordion stuff 
-// let accordion = '<button class="accordion">Tutorial</button>'
-// let panel = '<div class="panel"></div>'
-// let text = '<p>Just testing right now</p>'
 
 // ---- Display file structure ----
 
@@ -88,7 +73,6 @@ $('.folder').accordion({
 // -- Connect File Structure lock buttons to the permission dialog --
 
 // open permissions dialog when a permission button is clicked
-$('.permbutton').append('Permissions')
 $('.permbutton').click( function( e ) {
     // Set the path and open dialog:
     let path = e.currentTarget.getAttribute('path');
