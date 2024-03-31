@@ -24,6 +24,13 @@ perm_dialog = define_new_dialog('permdialog', title='Permissions', options = {
                 open_advanced_dialog(perm_dialog.attr('filepath'))
             }
         }
+    },
+    draggable: true,
+    handle: ".ui-dialog-titlebar",
+    position: {
+        my: 'left+160 center-10',  // Position of the dialog
+        at: 'left+160 center-10',  // Position relative to the target
+        of: window        // Target element, in this case, the window
     }
 })
 
