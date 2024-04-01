@@ -9,12 +9,12 @@ const additionalInfo = {
     "Special_permissions": "Users have custom configured permissions beyond the standard.",
     "     ":"     ", 
     "GENERAL RULES": "   ",
-    "Inheritance":"Permissions are inherited from parent folders to their subfolders and subsequent files. Users inherit permissions from groups they are in. Inherited properties are blocked in gray. ",
-    "Precedence":"Direct permissions override inherited permissions. Deny permissions ovverride allow permissions, granted they are both equally close to the user (the inheritance described above is still respected)",
+    "Inheritance":"Files and folders inherit permissions from the folders they are in. Users inherit permissions from groups they are in. Inherited properties are blocked in gray. ",
+    "Precedence":"Directly granted permissions override inherited permissions. Deny overrides allow at the same level, but not if deny was inherited",
     "Examples":"  ",
-    "One": "A user of a group may need to be added and have their permissions changed separately if their permissions should differ from the group", 
+    "One": "If a user's permissions are different from their group, they need to be ADDED and directly edited to override inherited permissions", 
     
-    "Two": "If a user has an 'allow' permission set on a file, but a 'deny' permission (for that same action) set on the folder which contains that file, they are allowed to perform that action"
+    "Two": "If a user has an 'allow' for one action on a file but 'deny' for the same action in the folder its in, they are allowed the action"
 };
 
 let permInfo = '<div id = "perm_info"><strong style="font-size: 25px; margin-bottom: 5px;">Permission Information</strong><ul style = "padding-left: 40px;">';
@@ -81,6 +81,7 @@ $('.folder').accordion({
 // -- Connect File Structure lock buttons to the permission dialog --
 
 // open permissions dialog when a permission button is clicked
+$('.permbutton').append('Edit Permissions')
 $('.permbutton').click( function( e ) {
     // Set the path and open dialog:
     let path = e.currentTarget.getAttribute('path');
