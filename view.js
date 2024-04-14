@@ -14,7 +14,10 @@ const additionalInfo = {
     "Examples":"  ",
     "One": "If a user's permissions are different from their group, they need to be ADDED and directly edited to override inherited permissions", 
     
-    "Two": "If a user has an 'allow' for one action on a file but 'deny' for the same action in the folder its in, they are allowed the action"
+    "Two": "If a user has an 'allow' for one action on a file but 'deny' for the same action in the folder it's in, they are allowed the action",
+
+    "Three": "DENYING full control removes all permissions for a user so they cannot access or make changes" 
+
 };
 
 let permInfo = '<div id = "perm_info"><strong style="font-size: 25px; margin-bottom: 5px;">Permission Information</strong><ul style = "padding-left: 40px;">';
