@@ -6,19 +6,19 @@ const additionalInfo = {
     "Read_Execute": "Users can read and execute an application.",
     "Modify": "Users can read, write, and delete the file.",
     "Full_control": "Users have full access, including changing permissions and file ownership.",
-    "Special_permissions": "Users have custom configured permissions beyond the standard.",
-    "     ":"     ", 
-    "GENERAL RULES": "   ",
-    "Inheritance":"Files and folders inherit permissions from the folders they are in. Users inherit permissions from groups they are in. Inherited properties are blocked in gray. ",
-    "Precedence":"Directly granted permissions override inherited permissions. Deny overrides allow at the same level, but not if deny was inherited",
-    "Examples":"  ",
-    "One": "If a user's permissions are different from their group, they need to be ADDED and directly edited to override inherited permissions", 
-    
-    "Two": "If a user has an 'allow' for one action on a file but 'deny' for the same action in the folder it's in, they are allowed the action",
-
-    "Three": "DENYING full control removes all permissions for a user so they cannot access or make changes" 
+    "Special_permissions": "Users have custom configured permissions beyond the standard."
 
 };
+const rules = {
+    "Inheritance":"Files and folders inherit permissions from the folders they are in. Users inherit permissions from groups they are in. Inherited properties are blocked in gray. ",
+    "Precedence":"Directly granted permissions override inherited permissions. Deny overrides allow at the same level, but not if deny was inherited",
+}
+
+const examples = {
+    "1": "If a user's permissions are different from their group, they need to be <strong>ADDED</strong> and directly edited to override inherited permissions", 
+    "2": "If a user has an 'allow' for one action on a file but 'deny' for the same action in the folder it's in, they are allowed the action",
+    "3": "<strong>DENYING</strong> full control removes all permissions for a user so they cannot access or make changes" 
+}
 
 let permInfo = '<div id = "perm_info"><strong style="font-size: 25px; margin-bottom: 5px;">Permission Information</strong><ul style = "padding-left: 40px;">';
 
@@ -26,8 +26,24 @@ for (const [permission, description] of Object.entries(additionalInfo)) {
     permInfo += `<li style="margin-bottom: 5px;"><strong>${permission}:</strong> ${description}</li>`;
 }
 
+let genRule = '<div id = "gen_Rule"><strong style="font-size: 25px; margin-bottom: 5px;">General Rules</strong><ul style = "padding-left: 40px;">';
+
+for (const [rule, instruction] of Object.entries(rules)) {
+    genRule += `<li style="margin-bottom: 5px;"><strong>${rule}:</strong> ${instruction}</li>`;
+}
+
+let exam = '<div id = "example"><strong style="font-size: 25px; margin-bottom: 5px;">Examples</strong><ul style = "padding-left: 40px;">';
+
+for (const [count, ex] of Object.entries(examples)) {
+    exam += `<li style="margin-bottom: 5px;"><strong>${count}:</strong> ${ex}</li>`;
+}
+
 permInfo += '</ul></div>';
+genRule += '</ul></div>';
+exam += '</ul></div>';
 $('#sidepanel').append(permInfo)
+$('#sidepanel').append(genRule)
+$('#sidepanel').append(exam)
 
 // // Create an accordion container
 // const accordionContainer = document.createElement('div');
