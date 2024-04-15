@@ -41,54 +41,28 @@ for (const [count, ex] of Object.entries(examples)) {
 permInfo += '</ul></div>';
 genRule += '</ul></div>';
 exam += '</ul></div>';
-$('#sidepanel').append(permInfo)
-$('#sidepanel').append(genRule)
-$('#sidepanel').append(exam)
+// $('#sidepanel').append(permInfo)
+// $('#sidepanel').append(genRule)
+// $('#sidepanel').append(exam)
 
-// // Create an accordion container
-// const accordionContainer = document.createElement('div');
-// accordionContainer.id = 'accordion-container';
+// following a different tutorial, hope this works
+let accordionContent = '<div id="accordion">';
+accordionContent += '<h3>Permission Information, General Rules, and Examples</h3>';
+accordionContent += '<div>';
+accordionContent += permInfo;
+accordionContent += genRule;
+accordionContent += exam;
+accordionContent += '</div>'; // closes the section of the accordion
+accordionContent += '</div>'; // closes container for accordion
+$('#sidepanel').append(accordionContent);
 
-// // Create the accordion button
-// const accordionButton = document.createElement('button');
-// accordionButton.className = 'accordion';
-// accordionButton.innerHTML = '<strong>Permission Information</strong>';
-
-// // Create the panel for the accordion content
-// const accordionPanel = document.createElement('div');
-// accordionPanel.className = 'panel';
-
-// // Create the list element for the permission information
-// const permissionList = document.createElement('ul');
-// permissionList.style.paddingLeft = '40px';
-
-// // Populate the permission information
-// for (const [permission, description] of Object.entries(additionalInfo)) {
-//     const listItem = document.createElement('li');
-//     listItem.innerHTML = `<strong>${permission}:</strong> ${description}`;
-//     permissionList.appendChild(listItem);
-// }
-
-// // Append the permission list to the panel
-// accordionPanel.appendChild(permissionList);
-
-// // Append the button and panel to the container
-// accordionContainer.appendChild(accordionButton);
-// accordionContainer.appendChild(accordionPanel);
-
-// // Append the container to the document body
-// document.body.appendChild(accordionContainer);
-
-// // Add event listener to toggle panel visibility when the button is clicked
-// accordionButton.addEventListener('click', function() {
-//     this.classList.toggle('active');
-//     const panel = this.nextElementSibling;
-//     if (panel.style.display === 'block') {
-//         panel.style.display = 'none';
-//     } else {
-//         panel.style.display = 'block';
-//     }
-// });
+// Initialize the accordion
+$(function () {
+    $("#accordion").accordion({
+        collapsible: true,
+        active: false
+    });
+});
 
 // ---- Display file structure ----
 
