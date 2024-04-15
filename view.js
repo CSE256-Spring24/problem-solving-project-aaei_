@@ -12,12 +12,15 @@ const additionalInfo = {
 const rules = {
     "Inheritance":"Files and folders inherit permissions from the folders they are in. Users inherit permissions from groups they are in. Inherited properties are blocked in gray. ",
     "Precedence":"Directly granted permissions override inherited permissions. Deny overrides allow at the same level, but not if deny was inherited",
+    "Permissions Hierarchy":"Deny permissions override allow permissions",
+    "User Hierarchy":"There exists several types of groups and users. For instance, admin is at the top of the hierarchy and has access and permissions to everything. This does include all the users, TAs and other types of users you will come accross on the website. There are also different groups. For instance, employees is a group of specific employees, not necessarily all."
 }
 
 const examples = {
     "1": "If a user's permissions are different from their group, they need to be <strong>ADDED</strong> and directly edited to override inherited permissions", 
     "2": "If a user has an 'allow' for one action on a file but 'deny' for the same action in the folder it's in, they are allowed the action",
-    "3": "<strong>DENYING</strong> full control removes all permissions for a user so they cannot access or make changes" 
+    "3": "<strong>DENYING</strong> full control removes all permissions for a user so they cannot access or make changes",
+    "4": "If a manager is granted a role that contains a specific permission, but a <strong>deny</strong> policy says that the manager cannot use that permission, then the manager cannot use the permission."
 }
 
 let permInfo = '<div id = "perm_info"><strong style="font-size: 25px; margin-bottom: 5px;">Permission Information</strong><ul style = "padding-left: 40px;">';
